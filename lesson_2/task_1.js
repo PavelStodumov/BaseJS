@@ -21,23 +21,24 @@ function task_1(){
   alert(`b = ${b} в четвертом примере b стала равна 3`)
 }
 
+function getSum(a, b) {
+  alert('сумма равна: ' + (a + b))
+  return a + b
+}
+function getDifferense(a, b) {
+  alert('разность равна: ' + (a - b))
+  return a - b
+}
+function getMultiplication(a, b) {
+  alert('произведение равно: ' + (a * b))
+  return a * b
+}
+function getDivison(a, b) {
+  alert('частное равно: ' + (a / b))
+  return a / b
+}
+
 function task_4() {
-  function getSum(a, b) {
-    alert('сумма равна: ' + (a + b))
-    return a + b
-  }
-  function getDifferense(a, b) {
-    alert('разность равна: ' + (a - b))
-    return a - b
-  }
-  function getMultiplication(a, b) {
-    alert('произведение равно: ' + (a * b))
-    return a * b
-  }
-  function getDivison(a, b) {
-    alert('частное равно: ' + (a / b))
-    return a / b
-  }
   function calc(operation=prompt('Введи операцию(+, -, *, /):')) {
     if (operation == '+') {
       getSum(+prompt('введи первое число'), +prompt('введи второе число'))
