@@ -38,13 +38,42 @@ function task_4() {
     alert('частное равно: ' + (a / b))
     return a / b
   }
-  function calc(operation=prompt('Введи операцию:')) {
+  function calc(operation=prompt('Введи операцию(+, -, *, /):')) {
     if (operation == '+') {
       getSum(+prompt('введи первое число'), +prompt('введи второе число'))
     } else if (operation == '-') {
       getDifferense(+prompt('введи первое число'), +prompt('введи второе число'))
-    } else if
+    } else if (operation == '*') {
+      getMultiplication(+prompt('введи первый множитель'), +prompt('введи второй множитель'))
+    } else if (operation == '/') {
+      getDivison(+prompt('введи делимое'), +prompt('введи делитель'))
+    } else {
+      alert('неизвестная операция')
+    }
   }
   calc()
 }
 
+function task_5() {
+  function calc_v2(num1, num2, operation=prompt('введи операцию(+, -, *, /)')) {
+    num1 = +prompt('введи первое число');
+    num2 = +prompt('введи второе число');
+    switch (operation) {
+      case '+':
+        getSum(num1, num2)
+        break
+      case '-':
+        getDifferense(num1, num2)
+        break
+      case '*':
+        getMultiplication(num1, num2)
+        break
+      case '/':
+        getDivison(num1, num2)
+        break
+      default:
+        alert('неизвестная операция')
+    }
+  }
+  calc_v2()
+}
