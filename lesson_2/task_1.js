@@ -1,24 +1,44 @@
 'use strict'
-function task_1(){
+function task_1() {
   //пример1
   let a = 1, b = 1, c, d;
   c = ++a;
   alert(`c = ${c} инкремент увеличивает переменную на 1, затем присваивается значение в переменную с`)
-  
+
   //пример 2
   d = b++;
   alert(`d = ${d} в переменную d присваивается значение b, затем значение b увеличивается на 1`);
-  
+
   //пример 3
   c = 2 + ++a;
   alert(`c = ${c} переменная а после первого примера равна 2, затем инкрементом её увеличили на 1, затем прибавили 2, затем присвоили в с.`);
-  
+
   //пример 4
   d = 2 + b++;
   alert(`d = ${d} во втором примере b стала 2. d = 2 + b = 4`);
-  
+
   alert(`a = ${a} в третем примере а стала равна 3`);
   alert(`b = ${b} в четвертом примере b стала равна 3`)
+}
+
+function task_2() {
+  let a = 2;
+  let x = 1 + (a *= 2);
+  alert(`a = ${a} так как а = а * 2`);
+  alert(`x = ${x} так как 1 + а`);
+}
+
+function task_3() {
+  let a = +prompt('введите первое число');
+  let b = +prompt('введите второе число');
+
+  if (a >= 0 && b >= 0) {
+    alert('оба числа положительные. их разность: ' + (a - b))
+  } else if (a < 0 && b < 0) {
+    alert('оба числа отрицвтельные. их произведение: ' + (a * b))
+  } else {
+    alert('числа имеют разные знаки. их сумма: ' + (a + b))
+  }
 }
 
 function getSum(a, b) {
@@ -39,7 +59,7 @@ function getDivison(a, b) {
 }
 
 function task_4() {
-  function calc(operation=prompt('Введи операцию(+, -, *, /):')) {
+  function calc(operation = prompt('Введи операцию(+, -, *, /):')) {
     if (operation == '+') {
       getSum(+prompt('введи первое число'), +prompt('введи второе число'))
     } else if (operation == '-') {
@@ -56,7 +76,7 @@ function task_4() {
 }
 
 function task_5() {
-  function calc_v2(num1, num2, operation=prompt('введи операцию(+, -, *, /)')) {
+  function calc_v2(num1, num2, operation = prompt('введи операцию(+, -, *, /)')) {
     num1 = +prompt('введи первое число');
     num2 = +prompt('введи второе число');
     switch (operation) {
