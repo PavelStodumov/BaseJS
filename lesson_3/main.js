@@ -61,3 +61,58 @@ function task_3() {
     products.forEach(function (product) { product.price -= product.price / 100 * 15 })
     console.log(products)
 }
+
+function task_4() {
+    const products = [
+        {
+            id: 3,
+            price: 127,
+            photos: [
+                "1.jpg",
+                "2.jpg",
+            ]
+        },
+        {
+            id: 5,
+            price: 499,
+            photos: []
+        },
+        {
+            id: 10,
+            price: 26,
+            photos: [
+                "3.jpg"
+            ]
+        },
+        {
+            id: 8,
+            price: 78,
+        },
+    ];
+    let products_with_photo = products.filter(product => product.photos && Boolean(product.photos.length))
+    console.log(products_with_photo)
+    products.sort(
+        function (a, b) {
+            if (a.price < b.price) {
+                return -1
+            }
+            return 1
+        }
+    )
+    console.log(products)
+}
+
+function task_5() {
+    function incr_i(i) {
+        console.log(i)
+        return ++i
+    }
+    for (let i = 0; i < 10; i = incr_i(i)) { }
+
+}
+
+function task_6() {
+    for (let i = 1; i <= 21; i++) {
+        console.log('x'.repeat(i))
+    }
+}
