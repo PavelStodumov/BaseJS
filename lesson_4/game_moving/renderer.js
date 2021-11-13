@@ -12,5 +12,9 @@ let renderer = {
             this.map += '\n';
         }
         console.log(this.map)
+    },
+    clear() {
+        console.clear();
+        this.map = '';
     }
 }
