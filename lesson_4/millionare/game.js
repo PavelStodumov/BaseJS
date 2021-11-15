@@ -4,7 +4,7 @@ let game = {
   start() {
     
     task.getTasks()
-    task.getVariantsAnswers(question1)
+    //task.getVariantsAnswers()
     
   },
   init() {

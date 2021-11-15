@@ -5,9 +5,10 @@ let player = {
     
   },
   getPlayerAnswer(answer) {
+    const letters = ['a', 'b', 'c', 'd']
     while (true){
       answer = prompt('Введите букву вашего ответа:').toLowerCase()
-      const letters = ['a', 'b', 'c', 'd']
+      
       if (letters.includes(answer)) {
         return answer
       }else {
