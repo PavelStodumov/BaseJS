@@ -41,7 +41,14 @@
     -->
 
     <script>
-        
+      setTimeout(function() {
+        let images = document.images
+        for (let i = 0; i < images.length; i++){
+          console.log(images[i])
+          images[i].setAttribute('src', `images/${i+1}.jpg`)
+        }
+      }
+      , 3000)
     </script>
 </body>
 </html>
