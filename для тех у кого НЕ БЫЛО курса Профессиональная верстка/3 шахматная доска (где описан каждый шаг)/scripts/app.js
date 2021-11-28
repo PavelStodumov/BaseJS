@@ -22,19 +22,19 @@ let app = {
     /**
      * Метод вставляет пешки на доску.
      */
-    insertPawns() {
+    insertPawns() { //белые и чёрные пешки получились перепутаны сторонами, ибо в positions.js на первой линии белые фигуры => на второй линии должны быть белые пешки
         // 6. получаем все теги td из 7 линии игрового поля, туда мы будем вставлять белые пешки
-        let whitePawnsRow = document.querySelectorAll('td');
+        let whitePawnsRow = document.querySelectorAll('td[data-rownum="7"]');
         for (let i = 0; i < whitePawnsRow.length; i++) {
             // 6.1 вставляем в текущий тег td белую пешку
-            whitePawnsRow[i].innerHTML = this.getFigure('afterbegin', '<i class="far fa-chess-pawn-alt"></i>');
+            whitePawnsRow[i].innerHTML = this.getFigure('pawn', 'blackFigure');
         }
 
         // 6.2 получаем все теги td из 2 линии игрового поля, туда мы будем вставлять черные пешки
-        let blackPawnsRow = document.querySelectorAll('td');
+        let blackPawnsRow = document.querySelectorAll('td[data-rownum="2"]');
         for (let i = 0; i < blackPawnsRow.length; i++) {
             // 6.3 вставляем в текущий тег td черную пешку
-            blackPawnsRow[i].innerHTML = this.getFigure('afterbegin', '<i class="fas fa-chess-pawn-alt"></i>');
+            blackPawnsRow[i].innerHTML = this.getFigure('pawn', "whiteFigure");
         }
     },
 
@@ -48,9 +48,9 @@ let app = {
             // coordRow и coordCol из массива positions
             let cell = document.querySelector(`[data-rownum="${positions[i].coordRow}"][data-colchar="${positions[i].coordCol}"]`);
             // 5.2 из массива positions, для текущего объекта по индексу i, передаем название фигуры, затем цвет+"Figure"
-            //let figure = this.getFigure(positions[i]., positions[i].+"Figure");
+            let figure = this.getFigure(positions[i].figure, positions[i].color + "Figure");
             // 5.3 в innerHTML текущей ячейки ставим figure
-            //cell. = ;
+            cell.innerHTML = figure;
         }
     },
 
@@ -116,22 +116,22 @@ let app = {
         // строки, т.е. это будет одна линия игрового поля
         let row = ''
         // 2.2 в цикле перебираем массив cols из config
-        for (let i = 0; i < app.config.cols.length ; i++) {
+        for (let i = 0; i < app.config.cols.length; i++) {
             // 2.3 создаем переменную field, в которую записываем пустую строку, это будет тег td, ячейка игрового поля
             let field = ''
             // 2.4 проверяем, равняется ли currentColorClass строке "white"
             if (currentColorClass == 'white') {
                 // 2.5 в переменную field пишем результат вызова функции this.generateField, которой передаем цвет ячейки игрового
                 // поля в виде строки, затем номер строки игровой доски в виде числа, последним аргументом передаем this.config.cols[i]
-                field = this.generateField(currentColorClass, i, this.config.cols[i]);
+                field = this.generateField(currentColorClass, rowNum, this.config.cols[i]);
                 // 2.6 присваиваем в currentColorClass строку "black"
                 currentColorClass = 'black'
-                
+
             } else {
                 // 2.7 делаем то же что и в п. 2.5, только первым параметром передаем "black"
-                 field = this.generateField(currentColorClass, i, this.config.cols[i]);
+                field = this.generateField(currentColorClass, rowNum, this.config.cols[i]);
                 // 2.8 переменной currentColorClass присваиваем строку "white"
-                  currentColorClass = 'white'
+                currentColorClass = 'white'
             }
             // 2.9 в переменную row дописываем с помощью += то что получилось в field
             row += field;
